@@ -1,0 +1,17 @@
+<div class="shop-view">
+  <input />
+  <button>Add item</button>
+
+  <div>
+    <button (click)="setView(true)">Show as List</button>
+    <button (click)="setView(false)">Show as Grid</button>
+  </div>
+
+  <div class="list-view" *ngIf="isListView">
+    <app-shop-list [listSource]="itemList" ></app-shop-list>
+  </div>
+  <div class="grid-view" *ngIf="!isListView">
+    <app-shop-grid [gridSource]="itemList"></app-shop-grid>
+  </div>
+
+</div>

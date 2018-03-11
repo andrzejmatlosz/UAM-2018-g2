@@ -1,3 +1,3 @@
 <div *ngFor="let item of listSource" class="list-item">
-  {{item}}
+  {{item}} <button (click)="removeItemHandler(item)">X</button>
 </div>

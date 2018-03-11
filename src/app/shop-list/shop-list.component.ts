@@ -1,4 +1,5 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { ShopRemoveItemService } from '../shop-view/shop-remove-item.service';
+import { Component, OnInit, Input, EventEmitter, Output } from '@angular/core';
 
 @Component({
   selector: 'app-shop-list',
@@ -10,9 +11,16 @@ export class ShopListComponent implements OnInit {
   @Input()
   public listSource: Array<string>;
 
-  constructor() { }
+  @Output()
+  public removeItem: EventEmitter<string> = new EventEmitter<string>(); 
+
+  constructor(private shopRemoveItemService: ShopRemoveItemService) { }
 
   ngOnInit() {
+  }
+
+  public removeItemHandler(itemToRemove: string) {
+    this.removeItem.emit(itemToRemove);
   }
 
 }

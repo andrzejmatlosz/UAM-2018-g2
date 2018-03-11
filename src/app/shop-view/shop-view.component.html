@@ -1,6 +1,6 @@
 <div class="shop-view">
-  <input />
-  <button>Add item</button>
+  <input [(ngModel)]="newItem" />
+  <button (click)="addNewItemToList()">Add item</button>
 
   <div>
     <button (click)="setView(true)">Show as List</button>
@@ -8,10 +8,10 @@
   </div>
 
   <div class="list-view" *ngIf="isListView">
-    <app-shop-list [listSource]="itemList" ></app-shop-list>
+    <app-shop-list [listSource]="itemList" (removeItem)="removeItemFromList($event)"></app-shop-list>
   </div>
   <div class="grid-view" *ngIf="!isListView">
-    <app-shop-grid [gridSource]="itemList"></app-shop-grid>
+    <app-shop-grid [gridSource]="itemList" (removeItem)="removeItemFromList($event)"></app-shop-grid>
   </div>
 
 </div>

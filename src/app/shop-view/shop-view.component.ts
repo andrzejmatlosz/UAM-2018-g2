@@ -7,19 +7,31 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ShopViewComponent implements OnInit {
 
-  public itemList: Array<string> = [
-    'A',
-    'B',
-    'C'
-  ];
+  public isListView: boolean = true;
+
+  public itemList: Array<string> = [];
+
+  public newItem: string;
 
   constructor() { }
 
   ngOnInit() {
   }
 
-  addNewItemToList() {
-    
+  public addNewItemToList(): void {
+    this.itemList.push(this.newItem);
+    this.newItem = '';
+  }
+
+  public removeItemFromList(itemToRemove: string): void {
+    const index: number = this.itemList.indexOf(itemToRemove);
+    if (index >= 0) {
+      this.itemList.splice(index, 1);
+    }
+  }
+
+  public setView(newView: boolean): void {
+    this.isListView = newView;
   }
 
 }

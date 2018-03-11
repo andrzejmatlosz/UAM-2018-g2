@@ -1,3 +1,5 @@
+import { ShopRemoveItemService } from './shop-view/shop-remove-item.service';
+import { FormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
@@ -7,6 +9,7 @@ import { HeaderComponent } from './header/header.component';
 import { MenuComponent } from './menu/menu.component';
 import { ShopViewComponent } from './shop-view/shop-view.component';
 import { ShopListComponent } from './shop-list/shop-list.component';
+import { ShopGridComponent } from './shop-grid/shop-grid.component';
 
 
 @NgModule({
@@ -15,12 +18,14 @@ import { ShopListComponent } from './shop-list/shop-list.component';
     HeaderComponent,
     MenuComponent,
     ShopViewComponent,
-    ShopListComponent
+    ShopListComponent,
+    ShopGridComponent
   ],
   imports: [
-    BrowserModule
+    BrowserModule,
+    FormsModule
   ],
-  providers: [],
+  providers: [ ShopRemoveItemService ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
